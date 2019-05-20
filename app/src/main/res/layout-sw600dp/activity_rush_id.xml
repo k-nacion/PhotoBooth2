@@ -10,12 +10,12 @@
         android:id="@+id/imageView8"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:scaleType="center"
+        android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/photo_background_2" />
+        app:srcCompat="@drawable/wallpaper_02" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -35,8 +35,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/camera_container"
-        android:layout_width="360dp"
-        android:layout_height="494dp"
+        android:layout_width="554dp"
+        android:layout_height="697dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

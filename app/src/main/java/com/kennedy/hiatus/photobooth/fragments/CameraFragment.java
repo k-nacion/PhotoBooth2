@@ -3,6 +3,7 @@ package com.kennedy.hiatus.photobooth.fragments;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
+import android.content.res.Configuration;
 import android.hardware.Camera;
 import android.os.Bundle;
 
@@ -41,6 +42,11 @@ public class CameraFragment extends Fragment {
     private SurfaceHolder surfaceHolder;
     private Camera camera;
 
+    private static final int CAMERA_FRONT = Camera.CameraInfo.CAMERA_FACING_FRONT;
+    private static final int CAMERA_BACK = Camera.CameraInfo.CAMERA_FACING_BACK;
+
+
+
     public CameraFragment() {
         // Required empty public constructor
     }
@@ -78,7 +84,11 @@ public class CameraFragment extends Fragment {
         @Override
         public void surfaceCreated(SurfaceHolder holder) {
             camera = Camera.open();
-            camera.setDisplayOrientation(90);
+
+            int orientation = getActivity().getResources().getConfiguration().orientation;
+            if (orientation == Configuration.ORIENTATION_PORTRAIT){
+                camera.setDisplayOrientation(90);
+            }
 
             Camera.Parameters parameters = camera.getParameters();
             parameters.setFocusMode(Camera.Parameters.FOCUS_MODE_CONTINUOUS_PICTURE);
@@ -138,5 +148,11 @@ public class CameraFragment extends Fragment {
             return camera;
         }
         return null;
+    }
+
+    public void switchCamera(int cameraNumber){
+        if (camera != null){
+            camera.release();
+        }
     }
 }
